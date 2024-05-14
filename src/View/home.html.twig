@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello</h1>
-    {% block body %}{% endblock %}
-</body>
-</html>
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} -Accueil
+{% endblock %}
+
+{% block navbar %}
+    <ul>
+            <li class="crumb"><a href="#">Instrument</a></li>
+            <li class="crumb"><a href="#">Musique</a></li>
+        </ul>
+{% endblock %}
+
+{% block content %}
+    
+
+    {% for product in products %}
+        <li>{{ product }}</li>
+    {% endfor %}
+
+    {{ dump(products) }}
+
+{% endblock %}
